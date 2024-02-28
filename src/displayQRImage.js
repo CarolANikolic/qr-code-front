@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const downloadButton = document.getElementById('download-button');
+    const qrImageElement = document.getElementById('qr-image');
     const downloadAnchor = document.getElementById('download-a');
 
-    downloadButton.addEventListener('click', async () => {
-        const baseURL = 'http://localhost:3000';
-        const qrImagePath = '/uploads/qr-img.png'; // Change this to the correct path of your QR image on the server
-        const response = await fetch(`${baseURL}${qrImagePath}`);
-        const blob = await response.blob();
+    const urlParams = new URLSearchParams(window.location.search);
+    const qrImagePath = urlParams.get('qrImagePath');
 
-        
-        downloadAnchor.href = window.URL.createObjectURL(blob);
-        downloadAnchor.download = 'qr-code.png'; // Set the filename here
+    if (qrImagePath) {
+        qrImageElement.src = qrImagePath;
 
-        // Trigger the click event on the anchor element to start the download
-        downloadAnchor.click();
-
-        // Clean up
-        document.body.removeChild(downloadLink);
-    });
+        // Ensure the qr-image element is loaded before attempting to set its src attribute
+        qrImageElement.onload = function() {
+            // Setup href for the url to download and set up download file name
+            downloadAnchor.href = qrImagePath;
+            downloadAnchor.download = 'qr-code.png'; 
+        };
+    } else {
+        window.location.href = 'index.html'
+    }
 });
-
