@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('url-form').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             body: `url=${encodeURIComponent(url)}`
         });
         if (response.ok) {
-            window.location.href = 'confirmation.html';
+            const qrImagePath = await response.text();
+            window.location.href = `confirmation.html?qrImagePath=${qrImagePath}`;
         }
     });
 });
