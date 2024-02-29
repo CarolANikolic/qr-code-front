@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         if (response.ok) {
             const qrImagePath = await response.text();
+            // Redirect the browser to the confirmation page and pass the response(qr image in base64) from server along for further processing.
             window.location.href = `confirmation.html?qrImagePath=${encodeURIComponent(qrImagePath)}`;
         }
     });
