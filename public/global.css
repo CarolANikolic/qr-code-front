@@ -65,6 +65,10 @@ form.containers-position {
     font-size: .8rem;
 }
 
+.containers-position__inputInfo--error {
+    color: tomato;
+}
+
 .containers-position__div {
     display: flex;
     flex-direction: column-reverse;
