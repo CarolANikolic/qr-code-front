@@ -6,12 +6,7 @@ This is my first full-stack project. I developed it to learn Node.js and Express
 
 The design is also created by me and it takes account for a mobile-first workflow, adapting to all screen sizes.
 
-## Video Demonstration
-
-To watch a demonstration of the project, you can download the video file:
-
-[![Watch the Video](easy-qr-screenshot.png)](qr-code-runnning.mp4)
-
+### Check out QR Code [here](https://easyqrcode.netlify.app)
 
 ## Development Process
 
